@@ -3,20 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Free Tools Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            padding: 50px;
+            background: url('background.jpg') no-repeat center center/cover;
+            color: white;
+        }
+        .tools-section {
+            padding: 20px;
+        }
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .tool-card {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .tool-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        footer {
+            padding: 10px;
+            background: #333;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <div class="logo">Free Tools Hub</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <section>
-        <p>Hello! I am a web developer. This is my portfolio website.</p>
+    
+    <section class="hero">
+        <h1>Your Ultimate Free Tools Hub!</h1>
+        <input type="text" placeholder="Search for tools...">
+        <button>Start Using Now</button>
     </section>
+    
+    <section id="tools" class="tools-section">
+        <h2>Popular Tools</h2>
+        <div class="tool-grid">
+            <div class="tool-card" onclick="openTool('instagram-downloader.html')">
+                <img src="insta-icon.png" alt="Instagram Downloader">
+                <p>Instagram Video Downloader</p>
+            </div>
+            <div class="tool-card">
+                <img src="pdf-icon.png" alt="PDF Converter">
+                <p>PDF to Word</p>
+            </div>
+            <div class="tool-card">
+                <img src="youtube-icon.png" alt="YouTube Thumbnail Downloader">
+                <p>YouTube Thumbnail Downloader</p>
+            </div>
+        </div>
+    </section>
+    
     <footer>
-        <p>Contact: shubhanali731@gmail.com</p>
+        <p>&copy; 2025 Free Tools Hub | All Rights Reserved</p>
     </footer>
-    <img src="images/port.jpg" alt="Tajmahal View" width="200">
-<h2>SHUBHAN ALI</h2>
+    
+    <script>
+        function openTool(url) {
+            window.location.href = url;
+        }
+
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.1)';
+                card.style.boxShadow = '0 8px 16px rgba(0,0,0,0.4)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+                card.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+            });
+        });
+    </script>
 </body>
 </html>
