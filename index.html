@@ -45,6 +45,25 @@
 <body>
     <div class="container">
         <h2>Instagram Video Downloader</h2>
+        <p>{{import requests
+
+# 🔹 Apify API ka URL (Apna API Token aur Dataset ID lagayein)
+API_URL = "https://api.apify.com/v2/datasets/YOUR_DATASET_ID/items?token=YOUR_API_TOKEN"
+
+# 🔹 API se data fetch karna
+response = requests.get(API_URL)
+
+if response.status_code == 200:
+    data = response.json()
+    
+    # 🔹 Pehle reel ka video URL print karna
+    if data and isinstance(data, list) and "videoUrl" in data[0]:
+        print("✅ Download Link:", data[0]["videoUrl"])
+    else:
+        print("❌ No video URL found!")
+else:
+    print("❌ Error:", response.status_code, response.text)
+}}</p>
         <input type="text" id="videoUrl" placeholder="Paste Instagram Video URL Here">
         <button onclick="downloadVideo()">Download Video</button>
         <p id="message"></p>
